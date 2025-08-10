@@ -1,12 +1,26 @@
 import React from 'react'
+import { Navbar } from './components/layout/Navbar'
+import { Footer } from './components/layout/Footer'
+import { Hero } from './sections/Hero'
+import { About } from './sections/About'
+import { Services } from './sections/Services'
+import { Projects } from './sections/Projects'
+import { Team } from './sections/Team'
+import { Testimonials } from './sections/Testimonials'
 
 function App(): JSX.Element {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main className="mx-auto max-w-5xl px-6 py-24">
-        <h1 className="text-3xl font-semibold">AFRIKA NEW TENDENCY</h1>
-        <p className="mt-2 text-muted">React + Vite + TS + Tailwind configured</p>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Projects />
+        <Team />
+        <Testimonials />
       </main>
+      <Footer />
     </div>
   )
 }
