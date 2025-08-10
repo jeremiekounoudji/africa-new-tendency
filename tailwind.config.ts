@@ -12,13 +12,13 @@ export default {
         sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // Placeholder tokens; will be replaced with extracted reference palette
-        background: '#0b0b0b',
-        foreground: '#f2f2f2',
-        primary: '#6E59F5',
-        secondary: '#1E1E1E',
-        accent: '#22D3EE',
-        muted: '#9CA3AF',
+        // Mapped to CSS variables for easy palette updates
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        accent: 'var(--accent)',
+        muted: 'var(--muted)',
       },
     },
   },

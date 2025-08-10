@@ -1,10 +1,7 @@
 import React from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, type Variants, type HTMLMotionProps } from 'framer-motion'
 
-export function useRevealVariants(): {
-  hidden: Record<string, unknown>
-  visible: Record<string, unknown>
-} {
+export function useRevealVariants(): Variants {
   const prefersReducedMotion = useReducedMotion()
   return {
     hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 24 },
@@ -16,15 +13,12 @@ export function useRevealVariants(): {
   }
 }
 
-type RevealProps = React.HTMLAttributes<HTMLDivElement> & {
-  as?: keyof JSX.IntrinsicElements
-}
+type RevealProps = HTMLMotionProps<'div'>
 
-export function Reveal({ as = 'div', children, className = '', ...rest }: RevealProps): JSX.Element {
+export function Reveal({ children, className = '', ...rest }: RevealProps): JSX.Element {
   const variants = useRevealVariants()
-  const Component = motion[as as 'div'] as typeof motion.div
   return (
-    <Component
+    <motion.div
       variants={variants}
       initial="hidden"
       whileInView="visible"
@@ -33,7 +27,7 @@ export function Reveal({ as = 'div', children, className = '', ...rest }: Reveal
       {...rest}
     >
       {children}
-    </Component>
+    </motion.div>
   )
 }
 

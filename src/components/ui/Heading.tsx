@@ -5,7 +5,7 @@ type Props = React.HTMLAttributes<HTMLHeadingElement> & {
 }
 
 export function Heading({ level = 2, className = '', children, ...props }: Props): JSX.Element {
-  const Tag = (`h${level}` as unknown) as keyof JSX.IntrinsicElements
+  const tag = (`h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')
   const sizes: Record<number, string> = {
     1: 'text-4xl md:text-5xl font-semibold',
     2: 'text-3xl md:text-4xl font-semibold',
@@ -14,11 +14,7 @@ export function Heading({ level = 2, className = '', children, ...props }: Props
     5: 'text-lg font-medium',
     6: 'text-base font-medium',
   }
-  return (
-    <Tag className={`${sizes[level]} ${className}`} {...props}>
-      {children}
-    </Tag>
-  )
+  return React.createElement(tag, { className: `${sizes[level]} ${className}`, ...props }, children)
 }
 
 

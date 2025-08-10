@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://afrika-new-tendency.example.com/sitemap.xml
+
+
