@@ -46,16 +46,17 @@ export function Projects(): JSX.Element {
       url: 'https://wakanda-4e7fc.web.app/'
     },
     {
-      id: 'asurex',
-      title: 'Site Web Courtier Asurex',
+      id: 'destok',
+      title: 'Logiciel Destok',
       company: 'Projet Personnel',
-      year: '2022',
-      featured: false,
-      description: 'Site web professionnel pour le courtier d\'assurance Asurex avec design responsive qui présente efficacement les services d\'assurance et les informations de l\'entreprise.',
-      technologies: ['HTML5', 'CSS3', 'JavaScript'],
-      moreTech: 1,
-      image: '/assets/asurex.jpg',
-      url: 'https://asurex.org/'
+      year: '2024',
+      featured: true,
+      description: 'Logiciel Windows complet de gestion d\'entreprise incluant la gestion de stock, d\'approvisionnement, de vente à crédit, de recouvrement, de relance des impayés et d\'établissement d\'échéancier (type microfinance).',
+      technologies: ['Windows', 'Desktop', 'Gestion'],
+      moreTech: 2,
+      image: '/assets/destok.jpg',
+      url: null,
+      hasModal: true
     },
     {
       id: 'kotisation',
@@ -288,30 +289,65 @@ export function Projects(): JSX.Element {
                 <div className="bg-gray-700 rounded-lg p-4">
                   <h4 className="text-lg font-semibold text-amber-400 mb-3">Fonctionnalités Principales</h4>
                   <ul className="space-y-2 text-gray-300">
-                    <li className="flex items-start">
-                      <span className="text-amber-400 mr-2">•</span>
-                      Création et gestion d'agents microfinance
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-amber-400 mr-2">•</span>
-                      Collecte et suivi des prêts
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-amber-400 mr-2">•</span>
-                      Gestion des pénalités et intérêts
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-amber-400 mr-2">•</span>
-                      Administration complète des clients
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-amber-400 mr-2">•</span>
-                      Tableau de bord analytique
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-amber-400 mr-2">•</span>
-                      Rapports financiers détaillés
-                    </li>
+                    {selectedProject.id === 'microfinance' ? (
+                      <>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Création et gestion d'agents microfinance
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Collecte et suivi des prêts
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Gestion des pénalités et intérêts
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Administration complète des clients
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Tableau de bord analytique
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Rapports financiers détaillés
+                        </li>
+                      </>
+                    ) : selectedProject.id === 'destok' ? (
+                      <>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Gestion complète des stocks
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Système d'approvisionnement
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Vente à crédit et suivi
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Recouvrement automatique
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Relance des impayés
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Établissement d'échéancier
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-amber-400 mr-2">•</span>
+                          Application Windows native
+                        </li>
+                      </>
+                    ) : null}
                   </ul>
                 </div>
                 
