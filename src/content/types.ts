@@ -22,6 +22,10 @@ export type TeamMember = {
   id: string
   name: string
   role: string
+  experience?: string
+  description?: string
+  image?: string
+  technologies?: string[]
   bio?: string
   photo?: string
   socials?: { linkedin?: string; github?: string; x?: string }
