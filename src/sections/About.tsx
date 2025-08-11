@@ -77,11 +77,11 @@ export function About(): JSX.Element {
               </div>
 
               {/* Experience Paragraph */}
-              <p className="text-lg text-gray-300 leading-relaxed">
-                <span className="text-blue-400 font-semibold">6-8 années d'expérience</span> dans le développement full-stack, 
-                spécialisés dans la création d'applications web et mobiles modernes qui résolvent des problèmes réels 
-                et transforment les entreprises africaines.
-              </p>
+                              <p className="text-lg text-gray-300 leading-relaxed">
+                  <span className="text-blue-400 font-semibold">8 années d'expérience</span> dans le développement full-stack, 
+                  spécialisés dans la création d'applications web et mobiles modernes qui résolvent des problèmes réels 
+                  et transforment les entreprises africaines.
+                </p>
 
               {/* Work History */}
               <p className="text-lg text-gray-300 leading-relaxed">
