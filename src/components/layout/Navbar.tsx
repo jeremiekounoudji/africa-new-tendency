@@ -11,7 +11,6 @@ export function Navbar(): JSX.Element {
           <a href="#services" className="text-sm text-muted hover:text-foreground">Services</a>
           <a href="#projects" className="text-sm text-muted hover:text-foreground">Projects</a>
           <a href="#team" className="text-sm text-muted hover:text-foreground">Team</a>
-          <a href="#testimonials" className="text-sm text-muted hover:text-foreground">Testimonials</a>
           <a href="#contact" className="text-sm text-muted hover:text-foreground">Contact</a>
         </nav>
       </Container>

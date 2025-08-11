@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from '../components/ui/Container'
 import { Button } from '../components/ui/Button'
 import { Heading } from '../components/ui/Heading'
 import { Reveal } from '../lib/motion'
 
 export function Hero(): JSX.Element {
+  const teamImages = [
+    '/assets/christian-photo.png',
+    '/assets/parfaite-photo.png',
+    '/assets/jeremie.png',
+    '/assets/fabrice-photo.png'
+  ]
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % teamImages.length)
+    }, 3000) // Change image every 3 seconds
+    
+    return () => clearInterval(interval)
+  }, [teamImages.length])
+  
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
       {/* Animated Background Elements */}
@@ -78,17 +95,17 @@ export function Hero(): JSX.Element {
             <div className="relative w-80 h-80 md:w-96 md:h-96">
               {/* Main Circle */}
               <div className="absolute inset-0 bg-fuchsia-500 rounded-full border-4 border-yellow-400 shadow-2xl">
-                <div className="absolute inset-4 bg-gradient-to-br from-fuchsia-600 to-fuchsia-400 rounded-full flex items-center justify-center">
-                  <img 
-                    src="/assets/hero-ceo.jpg" 
-                    alt="Afrika New Tendency CEO" 
-                    className="w-full h-full object-cover rounded-full"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face';
-                    }}
-                  />
-                </div>
+                              <div className="absolute inset-4 bg-gradient-to-br from-fuchsia-600 to-fuchsia-400 rounded-full flex items-center justify-center overflow-hidden">
+                <img 
+                  src={teamImages[currentImageIndex]} 
+                  alt="Team Member" 
+                  className="w-full h-full object-cover rounded-full transition-opacity duration-1000"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face';
+                  }}
+                />
+              </div>
               </div>
               
               {/* Technology Labels */}

@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from '../components/ui/Container'
 import { Button } from '../components/ui/Button'
 import { Heading } from '../components/ui/Heading'
 import { Reveal } from '../lib/motion'
 
 export function About(): JSX.Element {
+  const teamImages = [
+    '/assets/christian-photo.png',
+    '/assets/parfaite-photo.png',
+    '/assets/jeremie.png',
+    '/assets/fabrice-photo.png'
+  ]
+  
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % teamImages.length)
+    }, 4000) // Change image every 4 seconds (slightly slower than hero)
+    
+    return () => clearInterval(interval)
+  }, [teamImages.length])
+  
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900">
       <Container>
@@ -16,9 +33,9 @@ export function About(): JSX.Element {
               <div className="relative w-full max-w-md mx-auto">
                 <div className="relative">
                   <img 
-                    src="/assets/about-ceo.jpg" 
-                    alt="Afrika New Tendency CEO" 
-                    className="w-full h-auto rounded-lg border-4 border-yellow-400 shadow-2xl"
+                    src={teamImages[currentImageIndex]} 
+                    alt="Team Member" 
+                    className="w-full h-auto rounded-lg border-4 border-yellow-400 shadow-2xl transition-opacity duration-1000"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face';
@@ -61,23 +78,26 @@ export function About(): JSX.Element {
 
               {/* Experience Paragraph */}
               <p className="text-lg text-gray-300 leading-relaxed">
-                <span className="text-blue-400 font-semibold">5+ années d'expérience</span> dans le développement full-stack, 
+                <span className="text-blue-400 font-semibold">6-8 années d'expérience</span> dans le développement full-stack, 
                 spécialisés dans la création d'applications web et mobiles modernes qui résolvent des problèmes réels 
                 et transforment les entreprises africaines.
               </p>
 
               {/* Work History */}
               <p className="text-lg text-gray-300 leading-relaxed">
-                Basés au <span className="text-fuchsia-400 font-semibold">Cameroun</span>, nous avons contribué à des projets 
-                d'impact majeur incluant des plateformes de vote à grande échelle, des applications blockchain, 
+                Basés en <span className="text-fuchsia-400 font-semibold">République du Bénin</span>, nous avons contribué à des projets 
+                d'impact majeur incluant des plateformes de gestion microfinance, des applications blockchain, 
                 et des solutions mobiles qui servent des milliers d'utilisateurs à travers l'Afrique.
               </p>
 
               {/* Expertise */}
               <p className="text-lg text-gray-300 leading-relaxed">
                 Notre expertise s'étend sur <span className="text-green-400 font-semibold">React/Next.js</span>, 
-                <span className="text-green-400 font-semibold"> TypeScript</span>, 
-                <span className="text-green-400 font-semibold"> Flutter</span>, et les technologies backend modernes. 
+                <span className="text-green-400 font-semibold"> Flutter</span>, 
+                <span className="text-green-400 font-semibold"> Node.js</span>, 
+                <span className="text-green-400 font-semibold"> Laravel</span>, 
+                <span className="text-green-400 font-semibold"> Java</span>, 
+                <span className="text-green-400 font-semibold"> Solidity</span>, et les technologies d'IA. 
                 Nous sommes passionnés par l'écriture de code propre et efficace, et par la livraison d'expériences 
                 utilisateur exceptionnelles qui répondent aux besoins spécifiques du marché africain.
               </p>

@@ -15,7 +15,7 @@ export function Projects(): JSX.Element {
       technologies: ['Next.js', 'Firebase', 'TypeScript'],
       moreTech: 1,
       image: '/assets/unie-btp.jpg',
-      url: 'https://vercel.com/kounoudjijeremie-gmailcoms-projects/unie-btp'
+      url: 'https://unie-btp.vercel.app'
     },
     {
       id: 'microfinance',
@@ -27,7 +27,7 @@ export function Projects(): JSX.Element {
       technologies: ['Flutter', 'Next.js', 'Supabase'],
       moreTech: 2,
       image: '/assets/microfinance.jpg',
-      url: 'https://microfinance-demo.com'
+      url: 'https://ecofinance-admin.vercel.app'
     },
     {
       id: 'owakanda',
@@ -63,7 +63,19 @@ export function Projects(): JSX.Element {
       technologies: ['HTML', 'CSS', 'PHP'],
       moreTech: 2,
       image: '/assets/kotisation.jpg',
-      url: 'https://kotisation.com'
+      url: 'https://3ah.org'
+    },
+    {
+      id: 'eba-world',
+      title: 'EBA World - Plateforme de Formation',
+      company: 'CABINET ECOTREV CONSULTING',
+      year: '2024',
+      featured: true,
+      description: 'Plateforme complète de formation en e-commerce, commerce international et agrobusiness avec masterclass, webinaires et accompagnement personnalisé.',
+      technologies: ['Next.js', 'E-commerce', 'Formation'],
+      moreTech: 3,
+      image: '/assets/eba-world.jpg',
+      url: 'https://eba-world.com'
     }
   ]
 
@@ -84,7 +96,10 @@ export function Projects(): JSX.Element {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Reveal key={project.id} className="group">
-              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 overflow-hidden hover:bg-gray-800/70 transition-all duration-500 hover:border-amber-400/30 hover:shadow-xl hover:shadow-amber-400/10 transform hover:-translate-y-2">
+              <div 
+                className="relative bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 overflow-hidden hover:bg-gray-800/70 transition-all duration-500 hover:border-amber-400/30 hover:shadow-xl hover:shadow-amber-400/10 transform hover:-translate-y-2 cursor-pointer"
+                onClick={() => window.open(project.url, '_blank', 'noopener,noreferrer')}
+              >
                 
                 {/* Header Tags */}
                 <div className="absolute top-4 left-4 z-10 flex items-center space-x-2">
